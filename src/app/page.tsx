@@ -12,11 +12,13 @@ export default function Home() {
 
           <div className="text-left xl:text-center">
             <h3 className="mb-1 md:mb-3">Adam Ajsaen</h3>
-            <div className="px-2 py-1 ring-1 ring-gray-900/5 rounded-lg bg-gray-900/5  text-center">
-              <p className="sub-header-3">Software Engineer</p>
-            </div>
+            <div className="badge">Software Engineer</div>
           </div>
         </div>
+
+        <div className="divider" />
+
+        <div className="divider" />
       </Card>
 
       <Card>Card: About me/ Resume</Card>

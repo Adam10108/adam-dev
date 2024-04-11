@@ -23,6 +23,14 @@
 }
 
 @layer utilities {
+  .divider {
+    @apply my-8 border-t border-gray-900/5;
+  }
+
+  .badge {
+    @apply px-2 py-1 ring-1 ring-gray-900/5 rounded-lg bg-gray-900/5 text-center sub-header-3;
+  }
+
   /* Image */
   .image-wrapper {
     @apply relative ring-1 ring-gray-900/5 rounded-2xl bg-gray-900/10;
