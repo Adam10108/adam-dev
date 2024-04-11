@@ -1,6 +1,56 @@
+@import '@fontsource/poppins';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply font-poppins text-6xl font-semibold;
+  }
+  h2 {
+    @apply font-poppins text-4xl font-semibold;
+  }
+  h3 {
+    @apply font-poppins text-3xl font-semibold;
+  }
+  h4 {
+    @apply font-poppins text-2xl font-semibold;
+  }
+  h5 {
+    @apply font-poppins text-xl font-semibold;
+  }
+}
+
 @layer utilities {
+  /* Image */
+  .image-wrapper {
+    @apply relative ring-1 ring-gray-900/5 rounded-2xl bg-gray-900/10;
+  }
+  .image-wrapper > img {
+    @apply p-2;
+  }
+
+  /* Typography */
+  .sub-header-1 {
+    @apply font-poppins text-3xl font-normal;
+  }
+  .sub-header-2 {
+    @apply font-poppins text-2xl font-normal;
+  }
+  .sub-header-3 {
+    @apply font-poppins text-xl font-normal;
+  }
+  .text-body {
+    @apply font-poppins text-base font-normal;
+  }
+  .text-small {
+    @apply font-poppins text-base font-normal;
+  }
+  .caption {
+    @apply font-poppins text-xs font-normal;
+  }
+  .caption-bold {
+    @apply font-poppins text-xs font-semibold;
+  }
 }
