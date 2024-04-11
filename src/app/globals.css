@@ -6,19 +6,19 @@
 
 @layer base {
   h1 {
-    @apply font-poppins text-6xl font-semibold;
+    @apply font-poppins text-2xl md:text-6xl font-semibold;
   }
   h2 {
-    @apply font-poppins text-4xl font-semibold;
+    @apply font-poppins text-xl md:text-4xl font-semibold;
   }
   h3 {
-    @apply font-poppins text-3xl font-semibold;
+    @apply font-poppins text-lg md:text-3xl font-semibold;
   }
   h4 {
-    @apply font-poppins text-2xl font-semibold;
+    @apply font-poppins text-base md:text-2xl font-semibold;
   }
   h5 {
-    @apply font-poppins text-xl font-semibold;
+    @apply font-poppins text-sm md:text-xl font-semibold;
   }
 }
 
@@ -33,19 +33,19 @@
 
   /* Typography */
   .sub-header-1 {
-    @apply font-poppins text-3xl font-normal;
+    @apply font-poppins text-lg md:text-3xl font-normal;
   }
   .sub-header-2 {
-    @apply font-poppins text-2xl font-normal;
+    @apply font-poppins text-base md:text-2xl font-normal;
   }
   .sub-header-3 {
-    @apply font-poppins text-xl font-normal;
+    @apply font-poppins text-sm md:text-xl font-normal;
   }
   .text-body {
-    @apply font-poppins text-base font-normal;
+    @apply font-poppins text-xs md:text-base font-normal;
   }
   .text-small {
-    @apply font-poppins text-base font-normal;
+    @apply font-poppins text-xs md:text-base font-normal;
   }
   .caption {
     @apply font-poppins text-xs font-normal;
