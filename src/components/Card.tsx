@@ -9,7 +9,7 @@ export const Card = (props: PropsWithChildren<CardProps>) => {
 
   return (
     <div
-      className={`${width} shadow-md xl:shadow-xl ring-1 ring-gray-900/5 rounded-2xl p-4 md:p-8`}
+      className={`p-4 md:p-8m ${width} shadow-md xl:shadow-xl ring-1 ring-gray-900/5 rounded-2xl transition-all duration-700`}
     >
       {children}
     </div>
