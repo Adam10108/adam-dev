@@ -1,14 +1,21 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, Icon, IconProps, Collapse, CardAction } from '@/components'
+import {
+  Card,
+  Icon,
+  IconProps,
+  Collapse,
+  CardAction,
+  ContentRenderer,
+} from '@/components'
 import { useBreakpointValue } from '@/hooks'
 import Image from 'next/image'
 
 export default function Home() {
   const [showContacts, setShowContacts] = useState<boolean>(false)
 
-  const { desktop, tablet } = useBreakpointValue()
+  const { desktop } = useBreakpointValue()
   const isContactsVisible = desktop || showContacts
 
   return (
@@ -36,7 +43,7 @@ export default function Home() {
 
         <Collapse
           toggle={isContactsVisible}
-          maxHeight={desktop ? '100%' : '446px'}
+          maxHeight={desktop ? '100%' : '1024px'}
         >
           <div className="divider" />
 
@@ -71,7 +78,7 @@ export default function Home() {
         </Collapse>
       </Card>
 
-      <Card>Card: About me/ Resume</Card>
+      <ContentRenderer />
     </main>
   )
 }

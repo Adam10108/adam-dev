@@ -20,7 +20,7 @@ export const CardAction = (props: CardActionProps) => {
   if (label?.mobile && mobile) {
     const iconName = toggle ? label.mobile[0] : label.mobile[1]
     return (
-      <button className="absolute top-2 right-4 md:right-6" onClick={onClick}>
+      <button className="z-10 absolute top-2 right-4 md:right-6" onClick={onClick}>
         <Icon className="w-4 h-4" name={iconName as IconProps['name']} />
       </button>
     )
@@ -28,7 +28,7 @@ export const CardAction = (props: CardActionProps) => {
 
   if (label?.tablet && tablet) {
     return (
-      <button className="absolute top-2 right-4 md:right-6" onClick={onClick}>
+      <button className="z-10 absolute top-2 right-4 md:right-6" onClick={onClick}>
         {toggle ? label.tablet[0] : label.tablet[1]}
       </button>
     )
@@ -36,7 +36,7 @@ export const CardAction = (props: CardActionProps) => {
 
   if (label?.desktop && desktop) {
     return (
-      <button className="absolute top-2 right-4 md:right-6" onClick={onClick}>
+      <button className="z-10 absolute top-2 right-4 md:right-6" onClick={onClick}>
         {toggle ? label.desktop[0] : label.desktop[1]}
       </button>
     )
