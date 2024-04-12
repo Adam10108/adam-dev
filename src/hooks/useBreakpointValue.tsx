@@ -1,25 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 
 export const useBreakpointValue = () => {
+  const w = window.innerWidth
+  const h = window.innerHeight
+
   const [device, setDevice] = useState({
-    desktop: false,
-    tablet: false,
-    mobile: false,
-    w: 0,
-    h: 0,
+    ...handleScreenSizeChange(w, h),
+    w,
+    h,
   })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
-      const w = window.innerWidth
-      const h = window.innerHeight
-
       setDevice({
-        desktop: w >= device_screen_mapping.desktop,
-        tablet:
-          w >= device_screen_mapping.tablet &&
-          w < device_screen_mapping.desktop,
-        mobile: w < device_screen_mapping.tablet,
+        ...handleScreenSizeChange(w, h),
         w,
         h,
       })
@@ -27,7 +21,7 @@ export const useBreakpointValue = () => {
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [h, w])
 
   return device
 }
@@ -36,4 +30,13 @@ const device_screen_mapping = {
   desktop: 1024,
   tablet: 768,
   mobile: 425,
+}
+
+function handleScreenSizeChange(w: number, h: number) {
+  return {
+    desktop: w >= device_screen_mapping.desktop,
+    tablet:
+      w >= device_screen_mapping.tablet && w < device_screen_mapping.desktop,
+    mobile: w < device_screen_mapping.tablet,
+  }
 }
