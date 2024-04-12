@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, Icon, IconProps, Collapse } from '@/components'
+import { Card, Icon, IconProps, Collapse, CardAction } from '@/components'
 import { useBreakpointValue } from '@/hooks'
 import Image from 'next/image'
 
@@ -13,26 +13,15 @@ export default function Home() {
 
   return (
     <main className="min-h-screen max-w-screen-xl mx-auto flex flex-col xl:flex-row gap-4 md:gap-8 p-4 xl:p-24">
-      <Card width="relative w-full xl:w-2/5">
-        {!desktop && (
-          <button
-            className="absolute top-2 right-4 md:right-6"
-            onClick={() => setShowContacts(!showContacts)}
-          >
-            {tablet ? (
-              showContacts ? (
-                'Hide contacts'
-              ) : (
-                'Show contacts'
-              )
-            ) : (
-              <Icon
-                className="w-4 h-4"
-                name={showContacts ? 'chevronUp' : 'chevronDown'}
-              />
-            )}
-          </button>
-        )}
+      <Card width="w-full xl:w-2/5">
+        <CardAction
+          label={{
+            tablet: ['Hide contacts', 'Show contacts'],
+            mobile: ['chevronUp', 'chevronDown'],
+          }}
+          toggle={showContacts}
+          onClick={() => setShowContacts(!showContacts)}
+        />
 
         <div className="flex flex-row xl:flex-col items-center gap-4 md:gap-8">
           <div className="my-image-wrapper">
@@ -45,7 +34,10 @@ export default function Home() {
           </div>
         </div>
 
-        <Collapse toggle={isContactsVisible} maxHeight="446px">
+        <Collapse
+          toggle={isContactsVisible}
+          maxHeight={desktop ? '100%' : '446px'}
+        >
           <div className="divider" />
 
           <div className="contract-list">
