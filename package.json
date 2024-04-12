@@ -13,6 +13,11 @@
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/pro-regular-svg-icons": "file:src/vendor/fortawesome-pro-regular-svg-icons-6.5.1.tgz",
+    "@fortawesome/pro-solid-svg-icons": "file:src/vendor/fortawesome-pro-solid-svg-icons-6.5.1.tgz",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
