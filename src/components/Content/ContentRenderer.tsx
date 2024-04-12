@@ -41,7 +41,7 @@ export const ContentRenderer = () => {
                 key={idx}
                 onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
               >
-                <p className="text-body">{key}</p>
+                <p className="sub-header-1">{key}</p>
               </button>
             ))}
           </div>
@@ -51,7 +51,7 @@ export const ContentRenderer = () => {
       )}
 
       <h2>{activeContent.title}</h2>
-      <div className="w-2/12 mt-4 mb-8 rounded-lg border-b-8 border-gray-900/5" />
+      <div className="w-2/12 mt-2 md:mt-4 mb-4 md:mb-8  rounded-lg border-b-8 border-gray-900/5" />
 
       {CONTENT_MAPPING[activeMenu](activeContent as AboutProps & ResumeProps)}
     </Card>
@@ -73,6 +73,24 @@ const CONTENT: Content = {
     subTitle:
       "Hi, I'm a software engineer with 4+ years of experience in developing web applications. Experienced in working with teams across multiple projects, Able to work independently of remote locations or in office environments as needed by the company.",
     positions: [
+      {
+        iconName: 'displayCode',
+        name: 'Web Developer',
+        description:
+          'High-quality development of sites at the professional level.',
+      },
+      {
+        iconName: 'displayCode',
+        name: 'Web Developer',
+        description:
+          'High-quality development of sites at the professional level.',
+      },
+      {
+        iconName: 'displayCode',
+        name: 'Web Developer',
+        description:
+          'High-quality development of sites at the professional level.',
+      },
       {
         iconName: 'displayCode',
         name: 'Web Developer',
