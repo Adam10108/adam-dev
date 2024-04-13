@@ -79,24 +79,6 @@ const CONTENT: Content = {
         description:
           'High-quality development of sites at the professional level.',
       },
-      {
-        iconName: 'displayCode',
-        name: 'Web Developer',
-        description:
-          'High-quality development of sites at the professional level.',
-      },
-      {
-        iconName: 'displayCode',
-        name: 'Web Developer',
-        description:
-          'High-quality development of sites at the professional level.',
-      },
-      {
-        iconName: 'displayCode',
-        name: 'Web Developer',
-        description:
-          'High-quality development of sites at the professional level.',
-      },
     ],
   },
   resume: {
@@ -113,16 +95,25 @@ const CONTENT: Content = {
         title: 'Software Engineer',
         subTitle: 'OPN Co., Ltd.',
         date: 'Aug 2021 - Present',
+        location: 'Bangkok, Bangkok City, Thailand',
+        description:
+          "<ul class='list-disc'><li>Develop Opn.Store (eCommerce) and maintenance internal project</li><li>Develop E-commerce related services for Opn.Store (Email notification, Storefront, Storefront Editor, Merchant dashboard)</li><li>Maintenance and enhance merchant Dashboard</li><li>Develop In-app communication for Dashboard</li><li>Develop Dynamic-onboarding services for creating a registrations form by JSON schema</li></ul>",
       },
       {
         title: 'Web Developer',
         subTitle: 'Eventpop Co., Ltd.',
         date: 'Apr 2020 – Aug 2021',
+        location: 'Bangkok, Bangkok City, Thailand',
+        description:
+          "<ul class='list-disc'><li>Develop POP LIVE (Live Streaming)</li><li>Develop Eventpop Run (Virtual Run)</li><li>Collaborated with software engineering team on designing, testing, coding, and solving problems</li></ul>",
       },
       {
         title: 'Full-Stack Developer',
         subTitle: 'True e-Logistics Co., Ltd.',
         date: 'May 2019 – Sep 2019',
+        location: 'Bangkok, Bangkok City, Thailand',
+        description:
+          '<ul class="list-disc"><li>Cooperative education program.</li><li>Develop an internal dashboard to view report data from the black box.</li></ul>',
       },
     ],
   },

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Icon, IconProps } from '@/components'
+import { sanitizeHtml } from '@/utils'
 
 export type TimelineItem = {
   title: string
@@ -36,12 +37,17 @@ export const Timeline = (props: TimelineProps) => {
               <h4>{i.title}</h4>
             </div>
 
-            <div className="mb-16 ms-4">
+            <div className="mb-12 ms-4">
               <h5 className="sub-header-3">{i.subTitle}</h5>
               <p className="text-gray-900/40">{i.date}</p>
               {i?.location && <p className="text-gray-900/40">{i.location}</p>}
               {i?.description && (
-                <p className="mt-4 text-body">{i.description}</p>
+                <div
+                  className="mt-4 ml-4"
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizeHtml(i.description, {}),
+                  }}
+                />
               )}
             </div>
           </li>
