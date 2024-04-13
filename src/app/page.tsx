@@ -50,7 +50,7 @@ export default function Home() {
           <div className="contract-list">
             {contacts.map((contact, idx) => (
               <div key={idx} className="contract-item">
-                <div className="contract-icon-wrapper">
+                <div className="icon-wrapper">
                   <Icon name={contact.iconName} />
                 </div>
 
