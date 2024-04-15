@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { SCREEN_SIZE_MAPPING } from '@/constants'
 import { Card, CardAction, Collapse } from '@/components'
 import { About, AboutProps, Resume, ResumeProps } from '.'
-import { useBreakpointValue } from '@/hooks'
+import { useMediaQuery } from 'react-responsive'
 
 export const ContentRenderer = () => {
-  const { desktop } = useBreakpointValue()
+  const desktop = useMediaQuery({
+    minDeviceWidth: SCREEN_SIZE_MAPPING.desktop,
+  })
 
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about-me')

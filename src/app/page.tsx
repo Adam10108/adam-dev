@@ -9,13 +9,17 @@ import {
   CardAction,
   ContentRenderer,
 } from '@/components'
-import { useBreakpointValue } from '@/hooks'
 import Image from 'next/image'
+import { useMediaQuery } from 'react-responsive'
+import { SCREEN_SIZE_MAPPING } from '@/constants'
 
 export default function Home() {
   const [showContacts, setShowContacts] = useState<boolean>(false)
 
-  const { desktop } = useBreakpointValue()
+  const desktop = useMediaQuery({
+    minDeviceWidth: SCREEN_SIZE_MAPPING.desktop,
+  })
+
   const isContactsVisible = desktop || showContacts
 
   return (

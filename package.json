@@ -21,7 +21,8 @@
     "dompurify": "^3.1.0",
     "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-responsive": "^10.0.0"
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.5",
