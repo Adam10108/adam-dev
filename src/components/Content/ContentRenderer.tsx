@@ -5,25 +5,31 @@ import { About, AboutProps, Resume, ResumeProps } from '.'
 import { useMediaQuery } from 'react-responsive'
 
 export const ContentRenderer = () => {
+  const [showMenu, setShowMenu] = useState<boolean>(false)
+  const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about-me')
+
   const desktop = useMediaQuery({
     minDeviceWidth: SCREEN_SIZE_MAPPING.desktop,
   })
-
-  const [showMenu, setShowMenu] = useState<boolean>(false)
-  const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about-me')
 
   const activeContent = CONTENT[activeMenu]
 
   return (
     <Card>
-      <CardAction
-        label={{
-          tablet: ['Hide menu', 'Show menu'],
-          mobile: ['chevronUp', 'chevronDown'],
-        }}
-        toggle={showMenu}
-        onClick={() => setShowMenu(!showMenu)}
-      />
+      <div className="hidden md:block lg:hidden">
+        <CardAction
+          label={showMenu ? 'Hide menu' : 'Show menu'}
+          icon={showMenu ? 'chevronUp' : 'chevronDown'}
+          onClick={() => setShowMenu(!showMenu)}
+        />
+      </div>
+
+      <div className="block sm:hidden">
+        <CardAction
+          icon={showMenu ? 'chevronUp' : 'chevronDown'}
+          onClick={() => setShowMenu(!showMenu)}
+        />
+      </div>
 
       {desktop ? (
         <div className="absolute top-6 right-8 flex flex-row justify-end gap-4">
@@ -44,7 +50,7 @@ export const ContentRenderer = () => {
                 key={idx}
                 onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
               >
-                <p className="sub-header-1">{key}</p>
+                <p className="sub-header-3 sm:sub-header-1">{key}</p>
               </button>
             ))}
           </div>

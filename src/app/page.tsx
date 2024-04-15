@@ -25,14 +25,19 @@ export default function Home() {
   return (
     <main className="min-h-screen max-w-screen-xl mx-auto flex flex-col xl:flex-row gap-4 md:gap-8 p-4 xl:p-24">
       <Card width="w-full xl:w-2/5">
-        <CardAction
-          label={{
-            tablet: ['Hide contacts', 'Show contacts'],
-            mobile: ['chevronUp', 'chevronDown'],
-          }}
-          toggle={showContacts}
-          onClick={() => setShowContacts(!showContacts)}
-        />
+        <div className="hidden md:block lg:hidden">
+          <CardAction
+            label={showContacts ? 'Hide contacts' : 'Show contacts'}
+            onClick={() => setShowContacts(!showContacts)}
+          />
+        </div>
+
+        <div className="block sm:hidden">
+          <CardAction
+            icon={showContacts ? 'chevronUp' : 'chevronDown'}
+            onClick={() => setShowContacts(!showContacts)}
+          />
+        </div>
 
         <div className="flex flex-row xl:flex-col items-center gap-4 md:gap-8">
           <div className="my-image-wrapper">
