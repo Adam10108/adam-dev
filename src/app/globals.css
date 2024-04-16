@@ -77,6 +77,14 @@
     @apply my-8 border-t border-gray-900/5;
   }
 
+  /* Collapse */
+  .collapse {
+    @apply relative overflow-hidden transition-all duration-700 max-h-0;
+  }
+  .collapse-open {
+    @apply relative overflow-hidden transition-all duration-700 max-h-[1024px];
+  }
+
   /* Icon */
   .icon-wrapper {
     @apply p-2 ring-1 ring-gray-900/5 rounded-lg bg-gray-900/5;

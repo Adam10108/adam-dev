@@ -5,7 +5,6 @@ import {
   Card,
   Icon,
   IconProps,
-  Collapse,
   CardAction,
   ContentRenderer,
 } from '@/components'
@@ -14,7 +13,7 @@ import { useMediaQuery } from 'react-responsive'
 import { SCREEN_SIZE_MAPPING } from '@/constants'
 
 export default function Home() {
-  const [showContacts, setShowContacts] = useState<boolean>(false)
+  const [showContacts, setShowContacts] = useState<boolean>(true)
 
   const desktop = useMediaQuery({
     minDeviceWidth: SCREEN_SIZE_MAPPING.desktop,
@@ -50,10 +49,7 @@ export default function Home() {
           </div>
         </div>
 
-        <Collapse
-          toggle={isContactsVisible}
-          maxHeight={desktop ? '100%' : '1024px'}
-        >
+        <div className={isContactsVisible ? 'collapse-open' : 'collapse'}>
           <div className="divider" />
 
           <div className="contract-list">
@@ -84,7 +80,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-        </Collapse>
+        </div>
       </Card>
 
       <ContentRenderer />

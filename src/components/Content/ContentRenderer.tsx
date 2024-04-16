@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { SCREEN_SIZE_MAPPING } from '@/constants'
-import { Card, CardAction, Collapse } from '@/components'
+import { Card, CardAction } from '@/components'
 import { About, AboutProps, Resume, ResumeProps } from '.'
 import { useMediaQuery } from 'react-responsive'
 
 export const ContentRenderer = () => {
-  const [showMenu, setShowMenu] = useState<boolean>(false)
+  const [showMenu, setShowMenu] = useState<boolean>(true)
   const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about-me')
 
   const desktop = useMediaQuery({
@@ -13,6 +13,7 @@ export const ContentRenderer = () => {
   })
 
   const activeContent = CONTENT[activeMenu]
+  const isMenuVisible = desktop || showMenu
 
   return (
     <Card>
@@ -30,33 +31,33 @@ export const ContentRenderer = () => {
         />
       </div>
 
-      {desktop ? (
-        <div className="absolute top-6 right-8 flex flex-row justify-end gap-4">
+      <div className="hidden absolute top-6 right-8 xl:flex flex-row justify-end gap-4">
+        {Object.keys(CONTENT).map((key, idx) => (
+          <button
+            key={idx}
+            onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
+          >
+            <p className="text-body">{key}</p>
+          </button>
+        ))}
+      </div>
+
+      <div
+        className={`block xl:hidden ${isMenuVisible ? 'collapse-open' : 'collapse'}`}
+      >
+        <div className="flex flex-col xl:flex-row items-start gap-4">
           {Object.keys(CONTENT).map((key, idx) => (
             <button
               key={idx}
               onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
             >
-              <p className="text-body">{key}</p>
+              <p className="sub-header-3 sm:sub-header-1">{key}</p>
             </button>
           ))}
         </div>
-      ) : (
-        <Collapse toggle={showMenu} maxHeight="1024px">
-          <div className="flex flex-col xl:flex-row items-start gap-4">
-            {Object.keys(CONTENT).map((key, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
-              >
-                <p className="sub-header-3 sm:sub-header-1">{key}</p>
-              </button>
-            ))}
-          </div>
 
-          <div className="divider" />
-        </Collapse>
-      )}
+        <div className="divider" />
+      </div>
 
       <h2>{activeContent.title}</h2>
       <div className="w-2/12 mt-2 md:mt-4 mb-4 md:mb-8  rounded-lg border-b-8 border-gray-900/5" />
