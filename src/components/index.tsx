@@ -1,4 +1,5 @@
 export * from './Card'
 export * from './Content'
 export * from './Icon'
+export * from './PersonalDetails'
 export * from './Timeline'
