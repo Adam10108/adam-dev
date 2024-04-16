@@ -22,52 +22,6 @@
   }
 }
 
-@layer components {
-  /* Contracts */
-  .contract-list {
-    @apply flex flex-col gap-4 md:gap-6;
-  }
-  .contract-item {
-    @apply flex flex-row items-center gap-4 md:gap-6;
-  }
-  .contract-label {
-    @apply text-body text-gray-900/40;
-  }
-
-  /* Social media */
-  .social-media-list {
-    @apply w-full flex flex-row justify-start xl:justify-center gap-2;
-  }
-  .social-media-icon {
-    @apply w-6 md:w-8 h-6 md:h-8 inline-block mr-2 md:mr-4;
-  }
-
-  /* My image */
-  .my-image-wrapper {
-    @apply relative ring-1 ring-gray-900/5 rounded-2xl bg-gray-900/10 w-20 h-20 md:w-40 md:h-40;
-  }
-  .my-image-wrapper > img {
-    @apply p-2;
-  }
-
-  /* Timeline */
-  .timeline-header {
-    @apply flex flex-row items-center gap-6;
-  }
-  .timeline-list {
-    @apply pt-6 ml-5 md:ml-6 border-s border-gray-900/40;
-  }
-  .timeline-item {
-    @apply mb-6;
-  }
-  .timeline-item-title {
-    @apply flex items-center;
-  }
-  .timeline-item-title-pointer {
-    @apply -ms-[5px] me-3 h-[9px] w-[9px] rounded-full bg-gray-900/40;
-  }
-}
-
 @layer utilities {
   .badge {
     @apply px-2 py-1 ring-1 ring-gray-900/5 rounded-lg bg-gray-900/5 text-center sub-header-3;

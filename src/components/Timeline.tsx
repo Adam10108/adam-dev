@@ -20,7 +20,7 @@ export const Timeline = (props: TimelineProps) => {
   const { iconName = null, title, items } = props
   return (
     <div>
-      <div className="timeline-header">
+      <div className="flex flex-row items-center gap-6">
         {iconName && (
           <div className="icon-wrapper">
             <Icon name={iconName} />
@@ -29,11 +29,11 @@ export const Timeline = (props: TimelineProps) => {
         <h3>{title}</h3>
       </div>
 
-      <ol className="timeline-list">
+      <ol className="pt-6 ml-5 md:ml-6 border-s border-gray-900/40">
         {items.map((i, idx) => (
           <li key={idx}>
-            <div className="timeline-item-title">
-              <div className="timeline-item-title-pointer" />
+            <div className="flex items-center">
+              <div className="-ms-[5px] me-3 h-[9px] w-[9px] rounded-full bg-gray-900/40" />
               <h4>{i.title}</h4>
             </div>
 

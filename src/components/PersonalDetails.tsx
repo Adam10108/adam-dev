@@ -35,8 +35,13 @@ export const PersonalDetails = (props: PersonalDetailsProps) => {
       </div>
 
       <div className="flex flex-row xl:flex-col items-center gap-4 md:gap-8">
-        <div className="my-image-wrapper">
-          <Image src="/avatar.png" alt="My avatar" fill={true} />
+        <div className="relative ring-1 ring-gray-900/5 rounded-2xl bg-gray-900/10 w-20 h-20 md:w-40 md:h-40">
+          <Image
+            className="p-2"
+            src="/avatar.png"
+            alt="My avatar"
+            fill={true}
+          />
         </div>
 
         <div className="text-left xl:text-center">
@@ -48,15 +53,18 @@ export const PersonalDetails = (props: PersonalDetailsProps) => {
       <div className={isContactsVisible ? 'collapse-open' : 'collapse'}>
         <div className="divider" />
 
-        <div className="contract-list">
+        <div className="flex flex-col gap-4 md:gap-6">
           {contacts.map((contact, idx) => (
-            <div key={idx} className="contract-item">
+            <div
+              key={idx}
+              className="flex flex-row items-center gap-4 md:gap-6"
+            >
               <div className="icon-wrapper">
                 <Icon name={contact.icon} />
               </div>
 
               <div>
-                <p className="contract-label">{contact.label}</p>
+                <p className="text-body text-gray-900/40">{contact.label}</p>
                 <h5>{contact.value}</h5>
               </div>
             </div>
@@ -65,10 +73,14 @@ export const PersonalDetails = (props: PersonalDetailsProps) => {
 
         <div className="divider" />
 
-        <div className="social-media-list">
+        <div className="w-full flex flex-row justify-start xl:justify-center gap-2">
           {socialMedia.map(({ icon, link, style }, idx) => (
             <a key={idx} href={link} target="_blank" rel="noreferrer">
-              <Icon className="social-media-icon" name={icon} style={style} />
+              <Icon
+                className="w-6 md:w-8 h-6 md:h-8 inline-block mr-2 md:mr-4"
+                name={icon}
+                style={style}
+              />
             </a>
           ))}
         </div>
