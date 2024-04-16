@@ -19,7 +19,6 @@ export const ContentRenderer = () => {
       <div className="hidden md:block lg:hidden">
         <CardAction
           label={showMenu ? 'Hide menu' : 'Show menu'}
-          icon={showMenu ? 'chevronUp' : 'chevronDown'}
           onClick={() => setShowMenu(!showMenu)}
         />
       </div>
