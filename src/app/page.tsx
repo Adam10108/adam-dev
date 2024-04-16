@@ -9,17 +9,13 @@ import {
   ContentRenderer,
 } from '@/components'
 import Image from 'next/image'
-import { useMediaQuery } from 'react-responsive'
-import { SCREEN_SIZE_MAPPING } from '@/constants'
+import { useBreakpointValue } from '@/hooks'
 
 export default function Home() {
   const [showContacts, setShowContacts] = useState<boolean>(true)
+  const { isDesktop } = useBreakpointValue()
 
-  const desktop = useMediaQuery({
-    minDeviceWidth: SCREEN_SIZE_MAPPING.desktop,
-  })
-
-  const isContactsVisible = desktop || showContacts
+  const isContactsVisible = isDesktop || showContacts
 
   return (
     <main className="min-h-screen max-w-screen-xl mx-auto flex flex-col xl:flex-row gap-4 md:gap-8 p-4 xl:p-24">

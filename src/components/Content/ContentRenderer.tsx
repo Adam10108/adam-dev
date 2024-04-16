@@ -1,19 +1,17 @@
 import { useState } from 'react'
-import { SCREEN_SIZE_MAPPING } from '@/constants'
 import { Card, CardAction } from '@/components'
 import { About, AboutProps, Resume, ResumeProps } from '.'
-import { useMediaQuery } from 'react-responsive'
+
+import { useBreakpointValue } from '@/hooks'
 
 export const ContentRenderer = () => {
   const [showMenu, setShowMenu] = useState<boolean>(true)
   const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about-me')
 
-  const desktop = useMediaQuery({
-    minDeviceWidth: SCREEN_SIZE_MAPPING.desktop,
-  })
+  const { isDesktop } = useBreakpointValue()
 
   const activeContent = CONTENT[activeMenu]
-  const isMenuVisible = desktop || showMenu
+  const isMenuVisible = isDesktop || showMenu
 
   return (
     <Card>
