@@ -1,16 +1,19 @@
 import { useState } from 'react'
-import { Card, Icon, IconProps, CardAction } from '@/components'
+import { CardAction } from '@/components'
 import Image from 'next/image'
 import { useBreakpointValue } from '@/hooks'
 
-export interface PersonalDetailsProps {
+import { ContactDetailsSection } from '../ContactDetailsSection'
+import { SocialMediaSection } from '../SocialMediaSection'
+
+export interface PersonalDetails {
   fullName: string
   role: string
-  contacts: Contact[]
-  socialMedia: SocialMedia[]
+  contacts: ContactDetailsSection['contacts']
+  socialMedia: SocialMediaSection['socialMedia']
 }
 
-export const PersonalDetails = (props: PersonalDetailsProps) => {
+export const PersonalDetails = (props: PersonalDetails) => {
   const { fullName, role, contacts, socialMedia } = props
 
   const [showContacts, setShowContacts] = useState<boolean>(true)
@@ -19,7 +22,7 @@ export const PersonalDetails = (props: PersonalDetailsProps) => {
   const isContactsVisible = isDesktop || showContacts
 
   return (
-    <Card width="w-full xl:w-2/5">
+    <div className="relative p-4 md:px-8 md:py-10 w-full xl:w-2/5 h-fit shadow-md xl:shadow-xl ring-1 ring-gray-900/5 rounded-2xl transition-all duration-700">
       <div className="hidden md:block lg:hidden">
         <CardAction
           label={showContacts ? 'Hide contacts' : 'Show contacts'}
@@ -52,51 +55,10 @@ export const PersonalDetails = (props: PersonalDetailsProps) => {
 
       <div className={isContactsVisible ? 'collapse-open' : 'collapse'}>
         <div className="divider" />
-
-        <div className="flex flex-col gap-4 md:gap-6">
-          {contacts.map((contact, idx) => (
-            <div
-              key={idx}
-              className="flex flex-row items-center gap-4 md:gap-6"
-            >
-              <div className="icon-wrapper">
-                <Icon name={contact.icon} />
-              </div>
-
-              <div>
-                <p className="text-body text-gray-900/40">{contact.label}</p>
-                <h5>{contact.value}</h5>
-              </div>
-            </div>
-          ))}
-        </div>
-
+        <ContactDetailsSection contacts={contacts} />
         <div className="divider" />
-
-        <div className="w-full flex flex-row justify-start xl:justify-center gap-2">
-          {socialMedia.map(({ icon, link, style }, idx) => (
-            <a key={idx} href={link} target="_blank" rel="noreferrer">
-              <Icon
-                className="w-6 md:w-8 h-6 md:h-8 inline-block mr-2 md:mr-4"
-                name={icon}
-                style={style}
-              />
-            </a>
-          ))}
-        </div>
+        <SocialMediaSection socialMedia={socialMedia} />
       </div>
-    </Card>
+    </div>
   )
-}
-
-type Contact = {
-  icon: IconProps['name']
-  label: string
-  value: string
-}
-
-type SocialMedia = {
-  icon: IconProps['name']
-  style: IconProps['style']
-  link: string
 }

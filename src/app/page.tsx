@@ -1,10 +1,7 @@
 'use client'
 
-import {
-  ContentRenderer,
-  PersonalDetails,
-  PersonalDetailsProps,
-} from '@/components'
+import { ContentRenderer } from '@/components'
+import { PersonalDetails } from '@/containers/home-page'
 
 export default function Home() {
   return (
@@ -21,7 +18,7 @@ export default function Home() {
   )
 }
 
-const contacts: PersonalDetailsProps['contacts'] = [
+const contacts: PersonalDetails['contacts'] = [
   {
     icon: 'envelope',
     label: 'EMAIL',
@@ -44,7 +41,7 @@ const contacts: PersonalDetailsProps['contacts'] = [
   },
 ]
 
-const socialMedia: PersonalDetailsProps['socialMedia'] = [
+const socialMedia: PersonalDetails['socialMedia'] = [
   {
     icon: 'linkedinIn',
     style: 'brands',
