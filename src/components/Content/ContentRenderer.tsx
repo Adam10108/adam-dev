@@ -32,12 +32,15 @@ export const ContentRenderer = () => {
       </div>
 
       <div className="hidden absolute top-6 right-8 xl:flex flex-row justify-end gap-4">
-        {Object.keys(CONTENT).map((key, idx) => (
+        {Object.entries(CONTENT).map((item, idx) => (
           <button
             key={idx}
-            onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
+            className={
+              item[0] === activeMenu ? 'menu-item-active' : 'menu-item'
+            }
+            onClick={() => setActiveMenu(item[0] as keyof typeof CONTENT)}
           >
-            <p className="text-body">{key}</p>
+            {item[1].title}
           </button>
         ))}
       </div>
@@ -46,12 +49,15 @@ export const ContentRenderer = () => {
         className={`block xl:hidden ${isMenuVisible ? 'collapse-open' : 'collapse'}`}
       >
         <div className="flex flex-col xl:flex-row items-start gap-4">
-          {Object.keys(CONTENT).map((key, idx) => (
+          {Object.entries(CONTENT).map((item, idx) => (
             <button
               key={idx}
-              onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
+              className={
+                item[0] === activeMenu ? 'menu-item-active' : 'menu-item'
+              }
+              onClick={() => setActiveMenu(item[0] as keyof typeof CONTENT)}
             >
-              <p className="sub-header-3 sm:sub-header-1">{key}</p>
+              {item[1].title}
             </button>
           ))}
         </div>

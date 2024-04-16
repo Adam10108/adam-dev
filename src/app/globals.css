@@ -74,7 +74,15 @@
   }
 
   .divider {
-    @apply my-8 border-t border-gray-900/5;
+    @apply my-6 md:my-8 border-t border-gray-900/5;
+  }
+
+  /* Menu */
+  .menu-item {
+    @apply cursor-pointer sub-header-3 text-gray-900/20 hover:text-gray-900;
+  }
+  .menu-item-active {
+    @apply cursor-pointer sub-header-3;
   }
 
   /* Collapse */
@@ -104,9 +112,6 @@
     @apply font-poppins text-sm md:text-xl font-normal;
   }
   .text-body {
-    @apply font-poppins text-xs md:text-base font-normal;
-  }
-  .text-small {
     @apply font-poppins text-xs md:text-base font-normal;
   }
   .caption {
