@@ -19,9 +19,12 @@
     "@fortawesome/pro-solid-svg-icons": "file:src/vendor/fortawesome-pro-solid-svg-icons-6.5.1.tgz",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "dompurify": "^3.1.0",
+    "i18next": "^23.11.2",
     "next": "14.1.4",
+    "next-i18next": "^15.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-i18next": "^14.1.0",
     "react-responsive": "^10.0.0"
   },
   "devDependencies": {
