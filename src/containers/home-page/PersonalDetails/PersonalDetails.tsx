@@ -41,7 +41,8 @@ export const PersonalDetails = (props: PersonalDetails) => {
             className="p-2"
             src="/avatar.png"
             alt="My avatar"
-            fill={true}
+            sizes="100%"
+            fill
           />
         </div>
 
