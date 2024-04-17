@@ -39,7 +39,7 @@ export const PersonalDetails = (props: PersonalDetails) => {
         <div className="relative ring-1 ring-gray-900/5 rounded-2xl bg-gray-900/10 w-20 h-20 md:w-40 md:h-40">
           <Image
             className="p-2"
-            src="/avatar.png"
+            src="/images/avatar.png"
             alt="My avatar"
             sizes="100%"
             fill

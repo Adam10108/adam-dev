@@ -11,7 +11,12 @@ export default function Custom404() {
   return (
     <main className="min-h-screen max-w-screen-xl mx-auto p-4 lg:p-24 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-12">
       <div className="relative w-full lg:w-1/2 h-72 sm:h-[640px] lg:h-[460px]">
-        <Image src="/error/404.png" alt="Page not found" sizes="100%" fill />
+        <Image
+          src="/images/error/404.png"
+          alt="Page not found"
+          sizes="100%"
+          fill
+        />
       </div>
 
       <div className="w-auto flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-center">
