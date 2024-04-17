@@ -12,7 +12,6 @@ export default function Home() {
         contacts={contacts}
         socialMedia={socialMedia}
       />
-
       <ContentRenderer />
     </main>
   )
