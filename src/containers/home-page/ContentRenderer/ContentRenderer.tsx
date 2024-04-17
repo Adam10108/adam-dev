@@ -1,9 +1,10 @@
 import { useState } from 'react'
+
 import { Card } from '@/components'
+import { useBreakpointValue } from '@/hooks'
+
 import { AboutSection } from './AboutSection'
 import { ResumeSection } from './ResumeSection'
-
-import { useBreakpointValue } from '@/hooks'
 
 export const ContentRenderer = () => {
   const [showMenu, setShowMenu] = useState<boolean>(true)

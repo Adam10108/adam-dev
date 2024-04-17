@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Timeline } from '@/components'
 
 export interface ResumeSection {

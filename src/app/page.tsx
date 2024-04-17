@@ -1,6 +1,6 @@
 'use client'
 
-import { PersonalDetails, ContentRenderer } from '@/containers/home-page'
+import { ContentRenderer, PersonalDetails } from '@/containers/home-page'
 
 export default function Home() {
   return (
