@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Card, CardAction } from '@/components'
+import { Card } from '@/components'
 import { AboutSection } from './AboutSection'
 import { ResumeSection } from './ResumeSection'
 
@@ -15,21 +15,18 @@ export const ContentRenderer = () => {
   const isMenuVisible = isDesktop || showMenu
 
   return (
-    <Card>
-      <div className="hidden md:block lg:hidden">
-        <CardAction
-          label={showMenu ? 'Hide menu' : 'Show menu'}
-          onClick={() => setShowMenu(!showMenu)}
-        />
-      </div>
-
-      <div className="block sm:hidden">
-        <CardAction
-          icon={showMenu ? 'chevronUp' : 'chevronDown'}
-          onClick={() => setShowMenu(!showMenu)}
-        />
-      </div>
-
+    <Card
+      action={{
+        tablet: {
+          label: showMenu ? 'Hide menu' : 'Show menu',
+          onClick: () => setShowMenu(!showMenu),
+        },
+        mobile: {
+          icon: showMenu ? 'chevronUp' : 'chevronDown',
+          onClick: () => setShowMenu(!showMenu),
+        },
+      }}
+    >
       <div className="hidden absolute top-6 right-8 xl:flex flex-row justify-end gap-4">
         {Object.entries(CONTENT).map((item, idx) => (
           <button
