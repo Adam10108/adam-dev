@@ -4,7 +4,7 @@ import { ContentRenderer, PersonalDetails } from '@/containers/home-page'
 
 export default function Home() {
   return (
-    <main className="min-h-screen max-w-screen-xl mx-auto flex flex-col xl:flex-row gap-4 md:gap-8 p-4 xl:p-24">
+    <main className="min-h-screen max-w-screen-xl mx-auto flex flex-col xl:flex-row gap-4 md:gap-8 p-4 xl:p-8">
       <PersonalDetails
         fullName="Adam Ajsaen"
         role="Software Engineer"
