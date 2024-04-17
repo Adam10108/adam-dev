@@ -1,29 +1,21 @@
 import React from 'react'
-import { Icon, IconProps } from '@/components'
+import { Icon } from '@/components'
 import { sanitizeHtml } from '@/utils'
 
-export type TimelineItem = {
-  title: string
-  subTitle: string
-  date: string
-  location?: string
-  description?: string
-}
-
-export interface TimelineProps {
-  iconName?: IconProps['name']
+export interface Timeline {
+  icon?: Icon['name']
   title: string
   items: TimelineItem[]
 }
 
-export const Timeline = (props: TimelineProps) => {
-  const { iconName = null, title, items } = props
+export const Timeline = (props: Timeline) => {
+  const { icon = null, title, items } = props
   return (
     <div>
       <div className="flex flex-row items-center gap-6">
-        {iconName && (
+        {icon && (
           <div className="icon-wrapper">
-            <Icon name={iconName} />
+            <Icon name={icon} />
           </div>
         )}
         <h3>{title}</h3>
@@ -55,4 +47,12 @@ export const Timeline = (props: TimelineProps) => {
       </ol>
     </div>
   )
+}
+
+type TimelineItem = {
+  title: string
+  subTitle: string
+  date: string
+  location?: string
+  description?: string
 }

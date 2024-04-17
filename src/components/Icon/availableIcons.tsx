@@ -65,8 +65,8 @@ export const availableIcons = {
   },
 }
 
-export type IconName = keyof typeof availableIcons
-export type BrandIconName = keyof typeof availableBrandIcons
+export type icon = keyof typeof availableIcons
+export type Brandicon = keyof typeof availableBrandIcons
 
 export type BaseIconStyle = 'regular' | 'solid'
 export type IconStyle = BaseIconStyle | 'brands'

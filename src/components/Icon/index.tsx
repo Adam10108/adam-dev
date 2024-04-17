@@ -5,18 +5,18 @@ import {
   availableBrandIcons,
   availableIcons,
   BaseIconStyle,
-  BrandIconName,
-  IconName,
+  Brandicon,
+  icon,
   IconStyle,
 } from './availableIcons'
 
-export interface IconProps {
-  name: IconName | BrandIconName
+export interface Icon {
+  name: icon | Brandicon
   className?: string
   style?: IconStyle
 }
 
-export const Icon = (props: IconProps) => {
+export const Icon = (props: Icon) => {
   const { name, className = '', style = 'regular' } = props
 
   return (
@@ -30,13 +30,13 @@ export const Icon = (props: IconProps) => {
 }
 
 function getIcon(
-  iconName: IconName | BrandIconName,
+  icon: icon | Brandicon,
   style: IconStyle,
 ): IconDefinition {
   switch (style) {
     case 'brands':
-      return availableBrandIcons[iconName as BrandIconName]
+      return availableBrandIcons[icon as Brandicon]
     default:
-      return availableIcons[iconName as IconName][style as BaseIconStyle]
+      return availableIcons[icon as icon][style as BaseIconStyle]
   }
 }

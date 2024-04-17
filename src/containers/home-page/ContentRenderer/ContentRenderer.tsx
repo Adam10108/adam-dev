@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Card, CardAction } from '@/components'
-import { About, AboutProps, Resume, ResumeProps } from '.'
+import { AboutSection } from './AboutSection'
+import { ResumeSection } from './ResumeSection'
 
 import { useBreakpointValue } from '@/hooks'
 
 export const ContentRenderer = () => {
   const [showMenu, setShowMenu] = useState<boolean>(true)
-  const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about-me')
+  const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about')
 
   const { isDesktop } = useBreakpointValue()
 
@@ -66,14 +67,16 @@ export const ContentRenderer = () => {
       <h2>{activeContent.title}</h2>
       <div className="w-2/12 mt-2 md:mt-4 mb-4 md:mb-8  rounded-lg border-b-8 border-gray-900/5" />
 
-      {CONTENT_MAPPING[activeMenu](activeContent as AboutProps & ResumeProps)}
+      {CONTENT_MAPPING[activeMenu](
+        activeContent as AboutSection & ResumeSection,
+      )}
     </Card>
   )
 }
 
 export type Content = {
-  'about-me': AboutProps
-  resume: ResumeProps
+  about: AboutSection
+  resume: ResumeSection
 }
 
 export type ContentMapping = {
@@ -81,13 +84,13 @@ export type ContentMapping = {
 }
 
 const CONTENT: Content = {
-  'about-me': {
+  about: {
     title: 'About Me',
     subTitle:
       "Hi, I'm a software engineer with 4+ years of experience in developing web applications. Experienced in working with teams across multiple projects, Able to work independently of remote locations or in office environments as needed by the company.",
     positions: [
       {
-        iconName: 'displayCode',
+        icon: 'displayCode',
         name: 'Web Developer',
         description:
           'High-quality development of sites at the professional level.',
@@ -133,6 +136,6 @@ const CONTENT: Content = {
 }
 
 const CONTENT_MAPPING: ContentMapping = {
-  'about-me': (props: AboutProps) => <About {...props} />,
-  resume: (props: ResumeProps) => <Resume {...props} />,
+  about: (props: AboutSection) => <AboutSection {...props} />,
+  resume: (props: ResumeSection) => <ResumeSection {...props} />,
 }

@@ -1,4 +1,4 @@
-import { Icon, IconProps } from '@/components'
+import { Icon } from '@/components'
 
 export interface ContactDetailsSection {
   contacts: ContactDetail[]
@@ -26,7 +26,7 @@ export const ContactDetailsSection = (props: ContactDetailsSection) => {
 }
 
 type ContactDetail = {
-  icon: IconProps['name']
+  icon: Icon['name']
   label: string
   value: string
 }

@@ -1,4 +1,4 @@
-import { Icon, IconProps } from '@/components'
+import { Icon } from '@/components'
 
 export interface SocialMediaSection {
   socialMedia: SocialMedia[]
@@ -23,7 +23,7 @@ export const SocialMediaSection = (props: SocialMediaSection) => {
 }
 
 type SocialMedia = {
-  icon: IconProps['name']
-  style: IconProps['style']
+  icon: Icon['name']
+  style: Icon['style']
   link: string
 }

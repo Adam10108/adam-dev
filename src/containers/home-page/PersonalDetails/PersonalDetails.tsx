@@ -3,8 +3,8 @@ import { CardAction } from '@/components'
 import Image from 'next/image'
 import { useBreakpointValue } from '@/hooks'
 
-import { ContactDetailsSection } from '../ContactDetailsSection'
-import { SocialMediaSection } from '../SocialMediaSection'
+import { ContactDetailsSection } from './ContactDetailsSection'
+import { SocialMediaSection } from './SocialMediaSection'
 
 export interface PersonalDetails {
   fullName: string

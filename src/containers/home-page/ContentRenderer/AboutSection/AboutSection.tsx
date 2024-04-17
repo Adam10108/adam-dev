@@ -1,17 +1,17 @@
 import React from 'react'
-import { Card, Icon, IconProps } from '@/components'
+import { Card, Icon } from '@/components'
 
-export interface AboutProps {
+export interface AboutSection {
   title: string
   subTitle: string
   positions: {
-    iconName: IconProps['name']
+    icon: Icon['name']
     name: string
     description: string
   }[]
 }
 
-export const About = (props: AboutProps) => {
+export const AboutSection = (props: AboutSection) => {
   const { subTitle, positions } = props
 
   return (
@@ -24,7 +24,7 @@ export const About = (props: AboutProps) => {
           <Card key={idx}>
             <div className="flex gap-4">
               <div className="w-8 sm:w-12">
-                <Icon name={p.iconName} />
+                <Icon name={p.icon} />
               </div>
 
               <div className="w-full">

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Icon, IconProps } from '@/components'
+import { Icon } from '@/components'
 
 interface CardActionProps {
   label?: string
-  icon?: IconProps['name']
+  icon?: Icon['name']
   onClick: () => void
 }
 
