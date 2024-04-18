@@ -4,5 +4,30 @@
       "en": "🇬🇧 English",
       "th": "🇹🇭 ไทย"
     }
+  },
+  "personal-details": {
+    "hide-contacts": "Hide contacts",
+    "show-contacts": "Show contacts",
+    "email": "EMAIL",
+    "phone": "PHONE",
+    "birthday": "BIRTHDAY",
+    "location": "LOCATION"
+  },
+  "content-renderer": {
+    "hide-menu": "Hide menu",
+    "show-menu": "Show menu",
+    "menu-item": {
+      "about": "About Me",
+      "resume": "Resume"
+    },
+    "about-section": {
+      "title": "About Me",
+      "what-im-doing": "What I'm doing"
+    },
+    "resume-section": {
+      "title": "Resume",
+      "experience": "Experience",
+      "education": "Education"
+    }
   }
 }

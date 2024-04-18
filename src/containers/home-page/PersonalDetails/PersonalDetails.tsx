@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { Card } from '@/components'
@@ -17,6 +18,8 @@ export interface PersonalDetails {
 export const PersonalDetails = (props: PersonalDetails) => {
   const { fullName, role, contacts, socialMedia } = props
 
+  const t = useTranslations('personal-details')
+
   const [showContacts, setShowContacts] = useState<boolean>(true)
   const { isDesktop } = useBreakpointValue()
 
@@ -27,7 +30,7 @@ export const PersonalDetails = (props: PersonalDetails) => {
       width="w-full xl:w-2/5"
       action={{
         tablet: {
-          label: showContacts ? 'Hide contacts' : 'Show contacts',
+          label: showContacts ? t('hide-contacts') : t('show-contacts'),
           onClick: () => setShowContacts(!showContacts),
         },
         mobile: {

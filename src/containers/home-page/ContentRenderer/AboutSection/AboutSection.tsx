@@ -1,10 +1,10 @@
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 import { Card, Icon } from '@/components'
 
 export interface AboutSection {
-  title: string
-  subTitle: string
+  summary: string
   positions: {
     icon: Icon['name']
     name: string
@@ -13,12 +13,14 @@ export interface AboutSection {
 }
 
 export const AboutSection = (props: AboutSection) => {
-  const { subTitle, positions } = props
+  const { summary, positions } = props
+
+  const t = useTranslations('content-renderer.about-section')
 
   return (
     <div>
-      <h4 className="sub-header-3 mb-8 xl:mb-14">{subTitle}</h4>
-      <h3 className="mb-6 xl:mb-8">{"What i'm doing"}</h3>
+      <h4 className="sub-header-3 mb-8 xl:mb-14">{summary}</h4>
+      <h3 className="mb-6 xl:mb-8">{t('what-im-doing')}</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {positions.map((p, idx) => (

@@ -1,9 +1,9 @@
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 import { Timeline } from '@/components'
 
 export interface ResumeSection {
-  title: string
   education: any
   experience: any
 }
@@ -11,10 +11,12 @@ export interface ResumeSection {
 export const ResumeSection = (props: ResumeSection) => {
   const { education, experience } = props
 
+  const t = useTranslations('content-renderer.resume-section')
+
   return (
     <div className="flex flex-col gap-8">
-      <Timeline icon="briefcase" title="Experience" items={experience} />
-      <Timeline icon="graduationCap" title="Education" items={education} />
+      <Timeline icon="briefcase" title={t('experience')} items={experience} />
+      <Timeline icon="graduationCap" title={t('education')} items={education} />
     </div>
   )
 }

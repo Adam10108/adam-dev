@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { Card, LanguageSelector } from '@/components'
@@ -7,10 +8,16 @@ import { AboutSection } from './AboutSection'
 import { ResumeSection } from './ResumeSection'
 
 export const ContentRenderer = () => {
+  const t = useTranslations('content-renderer')
+  const { isDesktop } = useBreakpointValue()
+
+  const contentMenu = {
+    about: t('menu-item.about'),
+    resume: t('menu-item.resume'),
+  }
+
   const [showMenu, setShowMenu] = useState<boolean>(true)
   const [activeMenu, setActiveMenu] = useState<keyof typeof CONTENT>('about')
-
-  const { isDesktop } = useBreakpointValue()
 
   const activeContent = CONTENT[activeMenu]
   const isMenuVisible = isDesktop || showMenu
@@ -19,7 +26,7 @@ export const ContentRenderer = () => {
     <Card
       action={{
         tablet: {
-          label: showMenu ? 'Hide menu' : 'Show menu',
+          label: showMenu ? t('hide-menu') : t('show-menu'),
           onClick: () => setShowMenu(!showMenu),
         },
         mobile: {
@@ -29,15 +36,13 @@ export const ContentRenderer = () => {
       }}
     >
       <div className="hidden absolute top-6 right-8 xl:flex flex-row justify-end gap-4">
-        {Object.entries(CONTENT).map((item, idx) => (
+        {Object.entries(contentMenu).map(([key, value], idx) => (
           <button
             key={idx}
-            className={
-              item[0] === activeMenu ? 'menu-item-active' : 'menu-item'
-            }
-            onClick={() => setActiveMenu(item[0] as keyof typeof CONTENT)}
+            className={key === activeMenu ? 'menu-item-active' : 'menu-item'}
+            onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
           >
-            {item[1].title}
+            {value}
           </button>
         ))}
 
@@ -48,15 +53,13 @@ export const ContentRenderer = () => {
         className={`block xl:hidden ${isMenuVisible ? 'collapse-open' : 'collapse'}`}
       >
         <div className="flex flex-col xl:flex-row items-start gap-4">
-          {Object.entries(CONTENT).map((item, idx) => (
+          {Object.entries(contentMenu).map(([key, value], idx) => (
             <button
               key={idx}
-              className={
-                item[0] === activeMenu ? 'menu-item-active' : 'menu-item'
-              }
-              onClick={() => setActiveMenu(item[0] as keyof typeof CONTENT)}
+              className={key === activeMenu ? 'menu-item-active' : 'menu-item'}
+              onClick={() => setActiveMenu(key as keyof typeof CONTENT)}
             >
-              {item[1].title}
+              {value}
             </button>
           ))}
 
@@ -66,8 +69,8 @@ export const ContentRenderer = () => {
         <div className="divider" />
       </div>
 
-      <h2>{activeContent.title}</h2>
-      <div className="w-2/12 mt-2 md:mt-4 mb-4 md:mb-8  rounded-lg border-b-8 border-gray-900/5" />
+      <h2>{t(`${activeMenu}-section.title`)}</h2>
+      <div className="w-2/12 mt-2 md:mt-4 mb-4 md:mb-8 rounded-lg border-b-8 border-gray-900/5" />
 
       {CONTENT_MAPPING[activeMenu](
         activeContent as AboutSection & ResumeSection,
@@ -87,8 +90,7 @@ export type ContentMapping = {
 
 const CONTENT: Content = {
   about: {
-    title: 'About Me',
-    subTitle:
+    summary:
       "Hi, I'm a software engineer with 4+ years of experience in developing web applications. Experienced in working with teams across multiple projects, Able to work independently of remote locations or in office environments as needed by the company.",
     positions: [
       {
@@ -100,7 +102,6 @@ const CONTENT: Content = {
     ],
   },
   resume: {
-    title: 'Resume',
     education: [
       {
         title: 'Bachelor of Technology, Information Technology',
