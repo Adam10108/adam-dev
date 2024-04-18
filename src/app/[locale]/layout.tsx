@@ -4,6 +4,9 @@ import { NextIntlClientProvider, useMessages } from 'next-intl'
 import { SupportedLocale } from '@/libs/i18n'
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  },
   title: 'Adam Ajsaen',
   description: 'My personal website',
 }
