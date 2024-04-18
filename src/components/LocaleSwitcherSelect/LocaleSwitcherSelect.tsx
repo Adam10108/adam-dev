@@ -7,17 +7,17 @@ import { ChangeEvent, useTransition } from 'react'
 import { supportedLocales } from '@/libs/i18n'
 import { usePathname, useRouter } from '@/libs/i18nNavigation'
 
-export const LocaleSwitcher = () => {
+export const LocaleSwitcherSelect = () => {
   const params = useParams()
   const locale = useLocale()
-  const t = useTranslations('locale')
+  const t = useTranslations('locale-switcher')
 
   const [isPending, startTransition] = useTransition()
 
   const router = useRouter()
   const pathname = usePathname()
 
-  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+  const onSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = event.target.value
 
     startTransition(() => {
@@ -28,14 +28,13 @@ export const LocaleSwitcher = () => {
 
   return (
     <select
-      className="py-3 pl-2 pr-6"
       defaultValue={locale}
       disabled={isPending}
       onChange={onSelectChange}
     >
       {supportedLocales.map((locale) => (
         <option key={locale} value={locale}>
-          {t(`${locale}`)}
+          {t('locale', { locale })}
         </option>
       ))}
     </select>

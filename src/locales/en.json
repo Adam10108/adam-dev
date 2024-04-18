@@ -1,6 +1,5 @@
 {
-  "locale": {
-    "en": "English",
-    "th": "Thai"
+  "locale-switcher": {
+    "locale": "{locale, select, th {🇹🇭 ไทย} en {🇺🇸 English} other {Unknown}}"
   }
 }

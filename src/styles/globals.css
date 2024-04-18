@@ -20,6 +20,10 @@
   h5 {
     @apply font-poppins text-sm md:text-xl font-semibold;
   }
+
+  select {
+    @apply cursor-pointer appearance-none focus:outline-none sub-header-3;
+  }
 }
 
 @layer utilities {
