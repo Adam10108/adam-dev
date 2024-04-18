@@ -1,5 +1,8 @@
 {
   "language-selector": {
-    "locale": "{locale, select, th {🇹🇭 ไทย} en {🇺🇸 English} other {Unknown}}"
+    "locale": {
+      "en": "🇬🇧 English",
+      "th": "🇹🇭 ไทย"
+    }
   }
 }

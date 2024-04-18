@@ -34,7 +34,7 @@ export const LanguageSelector = () => {
     >
       {supportedLocales.map((locale) => (
         <option key={locale} value={locale}>
-          {t('locale', { locale })}
+          {t(`locale.${locale}`)}
         </option>
       ))}
     </select>
