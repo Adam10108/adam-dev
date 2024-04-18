@@ -22,7 +22,7 @@
   }
 
   select {
-    @apply cursor-pointer appearance-none focus:outline-none sub-header-3;
+    @apply cursor-pointer appearance-none bg-transparent focus:outline-none sub-header-3;
   }
 }
 
