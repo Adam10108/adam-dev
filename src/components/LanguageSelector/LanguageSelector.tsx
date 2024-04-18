@@ -7,10 +7,10 @@ import { ChangeEvent, useTransition } from 'react'
 import { supportedLocales } from '@/libs/i18n'
 import { usePathname, useRouter } from '@/libs/i18nNavigation'
 
-export const LocaleSwitcherSelect = () => {
+export const LanguageSelector = () => {
   const params = useParams()
   const locale = useLocale()
-  const t = useTranslations('locale-switcher')
+  const t = useTranslations('language-selector')
 
   const [isPending, startTransition] = useTransition()
 

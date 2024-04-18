@@ -1,5 +1,5 @@
 {
-  "locale-switcher": {
+  "language-selector": {
     "locale": "{locale, select, th {🇹🇭 ไทย} en {🇺🇸 English} other {ไม่ทราบ}}"
   }
 }
