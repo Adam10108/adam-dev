@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Card } from '@/components'
+import { Card, LocaleSwitcher } from '@/components'
 import { useBreakpointValue } from '@/hooks'
 
 import { AboutSection } from './AboutSection'
@@ -40,6 +40,8 @@ export const ContentRenderer = () => {
             {item[1].title}
           </button>
         ))}
+
+        <LocaleSwitcher />
       </div>
 
       <div
@@ -57,6 +59,8 @@ export const ContentRenderer = () => {
               {item[1].title}
             </button>
           ))}
+
+          <LocaleSwitcher />
         </div>
 
         <div className="divider" />
